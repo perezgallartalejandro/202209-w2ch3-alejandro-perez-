@@ -4,7 +4,7 @@ let usedNumbers = [];
 
 const generateCarton = () => {
     const carton = [];
-    for (let i = 0; i < 15; i=+ 1){
+    for (let index = 0; index < 15; index =+ 1){
         const randomNumbers = generateRandomNumbers();
         carton.push({number: randomNumbers, matched: false});
     }
