@@ -1,8 +1,8 @@
-const number1 = prompt("introduce primer numero");
-const number2 = prompt("introduce segundo numero");
+const number1 = 2;
+const number2 = 2;
 const result = [];
 
-const askNumber = () => {
+export const askNumber = () => {
   if (!Number.isNaN(number1) && number2 === null ||   number2 === '' && number1 > 0) ; 
     console.log('la raiz cuadrada de ',number1,  "es ", + Math.sqrt(number1).toFixed(3)); 
      if (number1 === null && Number.isNaN(number2) || number1 === ''  && number2 > 0); 
@@ -24,7 +24,7 @@ const askNumber = () => {
 	        }
 	    }  
 	     
-	const calculadora = () => {
+export const calculadora = () => {
 	    const num1 = parseFloat(number1)
 	    const num2 = parseFloat(number2)
 	    result.push(num1+num2)

@@ -1,10 +1,10 @@
-const user = prompt("introduzca nombre de usuario:")
+const user = "alejandro";
 console.log("bienvenido al bingo,", user);
 let usedNumbers = [];
 
 const generateCarton = () => {
     const carton = [];
-    for (let index = 0; index < 15; index =+ 1){
+    for (let index = 0; index < 15; index += 1){
         const randomNumbers = generateRandomNumbers();
         carton.push({number: randomNumbers, matched: false});
     }
@@ -116,7 +116,7 @@ const bingo = () =>{
     do {
         letsPlay();
         letsStart();
-    }while (confirm("¿quieres volver a jugar?"))
+    }while (true("¿quieres volver a jugar?"))
     console.log("fin del juego")
 }
 
@@ -126,7 +126,7 @@ const letsPlay = () => {
     do {
         userCarton = generateCarton();
         showCarton(userCarton);
-    }while (confirm("¿Quieres cambiar de cartón?"))
+    }while (true("¿Quieres cambiar de cartón?"))
 };
 
 const letsStart = () => {
@@ -144,7 +144,7 @@ const letsStart = () => {
             console.log(`Has tardado un total de ${usedNumbers.length} turnos.`)
             return userCarton;
         }
-    }while (confirm ("¿siguente numero?"))
+    }while (true ("¿siguente numero?"))
     return true;
 }
 bingo()
