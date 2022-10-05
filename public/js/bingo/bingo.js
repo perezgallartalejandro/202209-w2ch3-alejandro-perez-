@@ -1,18 +1,18 @@
-user = prompt("introduzca nombre de usuario:")
+const user = prompt("introduzca nombre de usuario:")
 console.log("bienvenido al bingo,", user);
+let usedNumbers = [];
 
 const generateCarton = () => {
-    usedNumbers = [];
     const carton = [];
-    for (let i = 0; i < 15; i++){
-        randomNumbers = generateRandomNumbers();
+    for (let i = 0; i < 15; i=+ 1){
+        const randomNumbers = generateRandomNumbers();
         carton.push({number: randomNumbers, matched: false});
     }
     return carton;
 }
 
 const showCarton = (userCarton) =>{
-    let cartons = [];
+    const cartons = [];
     userCarton.forEach(casilla =>{
         if (casilla.matched === true){
             cartons.push("X");
@@ -49,6 +49,7 @@ const checkBingo = (carton) =>{
     if (carton.every(matchedIsTrue) === true){
         return true;
     }
+    return false;
 }
 
 let completedLines = 0
@@ -59,52 +60,55 @@ const checkRow = (cartons) => {
 
     if (doLine1(line1)){
         console.log("¡¡¡¡¡¡¡¡¡LINEA!!!!!!!!");
-        completedLines++;
+        completedLines += 1;
     }
     if (doLine2(line2)){
         console.log("¡¡¡¡¡¡¡¡¡LINEA!!!!!!!!");
-        completedLines++;
+        completedLines += 1;
     }
     if (doLine3(line3)){
         console.log("¡¡¡¡¡¡¡¡¡LINEA!!!!!!!!");
-        completedLines++; 
+        completedLines +=1 ; 
     }
 }
 
 const doLine1 = (line1) => {
-    numbersLine1 = 0
-    for (i=0; i<line1.length; i++){
-        if (line1[i].matched === true){
-            numbersLine1 ++;
+    let numbersLine1 = 0
+    for (let index = 0; index < line1.length; index += 1){
+        if (line1[index].matched === true){
+            numbersLine1 +=1 ;
         }
     }    
     if (numbersLine1 === 5){
         return true
     }
+    return false
 }
 
 const doLine2 = (line2) => {
-    numbersLine2 = 0
-    for (i=0; i<line2.length; i++){
-        if (line2[i].matched === true){
-            numbersLine2++;
+    let numbersLine2 = 0
+    for (let index = 0; index < line2.length; index += 1){
+        if (line2[index].matched === true){
+            numbersLine2  += 1;
         }
     }    
     if (numbersLine2 === 5){
         return true
     }
+    return false;
 }
 
 const doLine3 = (line3) => {
-    numbersLine3 = 0
-    for (i=0; i<line3.length; i++){
-        if (line3[i].matched === true){
-            numbersLine3++;
+    let numbersLine3 = 0
+    for (let index = 0; index < line3.length; index += 1){
+        if (line3[index].matched === true){
+            numbersLine3 +=1;
         }
     }    
     if (numbersLine3 === 5){
         return true
     }   
+    return false
 }
 
 let userCarton = [];
@@ -122,14 +126,12 @@ const letsPlay = () => {
     do {
         userCarton = generateCarton();
         showCarton(userCarton);
-    }while (confirm("¿Quieres cambiar de cartón?")){
-    }
-    usedNumbers = [];
+    }while (confirm("¿Quieres cambiar de cartón?"))
 };
 
 const letsStart = () => {
     do{
-        let randomNumbers = generateRandomNumbers();
+        const randomNumbers = generateRandomNumbers();
         console.log(`ha salido el : ${randomNumbers}.`);  
         checkNumber(randomNumbers, userCarton);
         if (completedLines < 3){
@@ -143,5 +145,6 @@ const letsStart = () => {
             return userCarton;
         }
     }while (confirm ("¿siguente numero?"))
+    return true;
 }
 bingo()

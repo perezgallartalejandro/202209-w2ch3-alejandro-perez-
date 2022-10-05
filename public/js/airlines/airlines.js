@@ -1,60 +1,61 @@
 let flights = [
 
-  { id: 00, to: "New York", from: "Barcelona", cost: 700, scale: false },
-  { id: 01, to: "Los Angeles", from: "Madrid", cost: 1100, scale: true },
-  { id: 02, to: "Paris", from: "Barcelona", cost: 210, scale: false },
-  { id: 03, to: "Roma", from: "Barcelona", cost: 150, scale: false },
-  { id: 04, to: "London", from: "Madrid", cost: 200, scale: false },
-  { id: 05, to: "Madrid", from: "Barcelona", cost: 90, scale: false },
-  { id: 06, to: "Tokyo", from: "Madrid", cost: 1500, scale: true },
-  { id: 07, to: "Shangai", from: "Barcelona", cost: 800, scale: true },
-  { id: 08, to: "Sydney", from: "Barcelona", cost: 150, scale: true },
-  { id: 09, to: "Tel-Aviv", from: "Madrid", cost: 150, scale: false },
+  { id: 0, to: "New York", from: "Barcelona", cost: 700, scale: false },
+  { id: 1, to: "Los Angeles", from: "Madrid", cost: 1100, scale: true },
+  { id: 2, to: "Paris", from: "Barcelona", cost: 210, scale: false },
+  { id: 3, to: "Roma", from: "Barcelona", cost: 150, scale: false },
+  { id: 4, to: "London", from: "Madrid", cost: 200, scale: false },
+  { id: 5, to: "Madrid", from: "Barcelona", cost: 90, scale: false },
+  { id: 6, to: "Tokyo", from: "Madrid", cost: 1500, scale: true },
+  { id: 7, to: "Shangai", from: "Barcelona", cost: 800, scale: true },
+  { id: 8, to: "Sydney", from: "Barcelona", cost: 150, scale: true },
+  { id: 9, to: "Tel-Aviv", from: "Madrid", cost: 150, scale: false },
   ];
 
   const askName = () => {
-  let name = prompt("Introduzca su nombre");
+  const name = prompt("Introduzca su nombre");
   console.log(`bienvenido a ISDI Airlines, ${name}`);
   }
 
   const showFlights = () => {
   console.log("**********VUELOS**********");
-  flights.forEach((flights) => {
+  flights.forEach((flight) => {
       if (flights.scale === true){
-      console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y realiza escala.`);
+      console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y realiza escala.`);
       }
       else{
-      console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y no realiza escala.`);
+      console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y no realiza escala.`);
       }})
   console.log("*******************");
   }  
 
   const averageFlights = () => {
-  for (i=0; i<flights.lenght ;i++);{
-  let costFlights = 0;
-  let averageFlights = 0;
-  flights.forEach((flight) => costFlights = costFlights + flight.cost);
-  averageFlights = costFlights / flights.length;
-  console.log(`el coste medio de los vuelos de hoy es de ${averageFlights} €`);
+  for (let index = 0; index < flights.lenght ;index+= 1);{
+  const costFlights = 0;
+  let averageFlight = 0;
+  flights.forEach((flight) => costFlights === costFlights + flight.cost);
+  averageFlight = costFlights / flights.length;
+  console.log(`el coste medio de los vuelos de hoy es de ${averageFlight} €`);
+  return averageFlight;
   }
   }
 
   const showScales = () => {
-      for (i=0; i<flights.length ;i++);{
+      for (let index = 0; index < flights.lenght ;index+= 1);{
       let numberScales = 0;
       flights.forEach((flight) =>{
       if(flight.scale === true ){
-          numberScales++}});
+          numberScales +=1 }});
       console.log(`el numero de vuelos que realizan escalas es de ${numberScales}`);   
       }
       }
   
   const lastTo = () => {
       console.log("los ultimos vuelos del dia de hoy son...")
-      let last = flights.length - 6
-      flights.forEach((flights) => {
-      if (flights.id > last){
-      console.log(`el vuelo numero ${flights.id} con destino a ${flights.to}`)}})
+      const last = flights.length - 6
+      flights.forEach((flight) => {
+      if (flight.id > last){
+      console.log(`el vuelo numero ${flight.id} con destino a ${flight.to}`)}})
       }
       
   const preguntaRol = () => {
@@ -65,7 +66,6 @@ let flights = [
           }else if(rol.toLowerCase() !== "user" && rol.toLowerCase() !=="admin"){
               alert("rol incorrecto");
               preguntaRol();
-          }else{
           }
       if (rol.toLowerCase() ==="admin"){
           eresAdmin();
@@ -91,12 +91,12 @@ let flights = [
           nuevoVuelo.scale = prompt("inserte si realiza escala");
           flights.push(nuevoVuelo);
           console.log("**********VUELOS**********");
-          flights.forEach((flights) => {
-          if (flights.scale === true){
-          console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y realiza escala.`);
+          flights.forEach((flight) => {
+          if (flight.scale === true){
+          console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y realiza escala.`);
           }
           else{
-          console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y no realiza escala.`);
+          console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y no realiza escala.`);
           }})
           console.log("*******************");
           }
@@ -108,12 +108,12 @@ let flights = [
           flights = flights.filter((flight) => flight.id !== idBorrar);
       }
       console.log("**********VUELOS**********");
-      flights.forEach((flights) => {
-      if (flights.scale === true){
-      console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y realiza escala.`);
+      flights.forEach((flight) => {
+      if (flight.scale === true){
+      console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y realiza escala.`);
           }
       else{
-      console.log(`el vuelo nº ${flights.id} con origen en ${flights.from} con destino a ${flights.to} tiene un coste de ${flights.cost}€ y no realiza escala.`);
+      console.log(`el vuelo nº ${flight.id} con origen en ${flight.from} con destino a ${flight.to} tiene un coste de ${flight.cost}€ y no realiza escala.`);
           }})
           console.log("*******************");
           }
@@ -121,12 +121,12 @@ let flights = [
       const eresUser = () => {
           const precioVuelo = +prompt("introduzca su presupuesto maximo");
           console.log("los vuelos dentro de su presupuesto son...");
-          flights.forEach((flights) => {
-              if (flights.cost < precioVuelo){
-                  console.log(`el vuelo nº ${flights.id} con origen ${flights.from} destino a ${flights.to} por el coste de ${flights.cost}`)
+          flights.forEach((flight) => {
+              if (flight.cost < precioVuelo){
+                  console.log(`el vuelo nº ${flight.id} con origen ${flight.from} destino a ${flight.to} por el coste de ${flight.cost}`)
               }
           })
-          if (isNaN(precioVuelo) && precioVuelo<0){
+          if (Number.isNaN(precioVuelo) && precioVuelo<0){
               alert("introduzca su presupuesto maximo");
               eresUser();
           }

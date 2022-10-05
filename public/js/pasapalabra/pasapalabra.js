@@ -1,4 +1,4 @@
-let players = [] ;
+const players = [] ;
 players.push = prompt("introduzca su nombre");
 console.log("bienvenido a pasapalabra", players[players-length-1]);
 
@@ -90,89 +90,92 @@ const pasapalabra = () => {
 
   const doQuestions1 = () =>{
   do {
-  for(i=0; i<questions1.length; i++){
-  if(questions1[i].status === 0){
-  var userAnswer = prompt(questions1[i].question).toLowerCase();
+  for(let index = 0; index < questions1.length; index += 1){
+  if(questions1[index].status === 0){
+  const userAnswer = prompt(questions1[index].question).toLowerCase();
   if(userAnswer === questions1[i].answer){
   console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
-  questions1[i].status = 1;
-  corrects = corrects+1;
-  count = count+1;
+  questions1[index].status = 1;
+  corrects += 1;
+  count += 1;
   }
   else if(userAnswer === "pasapalabra"){
   console.log("Pasamos palabra");
   }
   else if(userAnswer === "end"){
-  console.log("El juego ha terminado con , " + corrects + " aciertos y " + fails + " errores.");
+  console.log('El juego ha terminado con ,' , corrects , ' aciertos y ' , fails , ' errores.');
   return userAnswer;
   }
   else {
   console.log("¡¡¡¡¡¡¡ERROR!!!!!!!!");
-  questions1[i].status = 2;
-  fails = fails+1;
-  count = count+1;
+  questions1[index].status = 2;
+  fails += 1;
+  count += 1;
   }
   }}
   } while (count<questions1.length);
-  console.log("Has acertado " + corrects + " palabras y has cometido " + fails + " errores.")
+  console.log('Has acertado ' , corrects ,' palabras y has cometido ', fails , 'errores.')
+  return true
   }
 
 const doQuestions2 = () =>{
      do {
-    for(i=0; i<questions2.length; i++){
-        if(questions1[i].status === 0){
-        var userAnswer = prompt(questions2[i].question).toLowerCase();
-        if(userAnswer === questions2[i].answer){
+    for(let index = 0; index < questions1.length; index += 1){
+        if(questions1[index].status === 0){
+        const userAnswer = prompt(questions2[i].question).toLowerCase();
+        if(userAnswer === questions2[index].answer){
         console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
-        questions2[i].status = 1;
-        corrects = corrects+1;
-        count = count+1;;
+        questions2[index].status = 1;
+        corrects += 1;
+        count += 1;;
         }
         else if(userAnswer === "pasapalabra"){
         console.log("Pasamos palabra");
         }
         else if(userAnswer === "end"){
-        console.log("El juego ha terminado con , " + corrects + " aciertos y " + fails + " errores.");
+        console.log('El juego ha terminado con ,' , corrects , ' aciertos y ' , fails , ' errores.');
         return userAnswer;
         }
         else {
         console.log("¡¡¡¡¡¡¡ERROR!!!!!!!!");
-        questions2[i].status = 2;
-        fails = fails+1;
-        count = count+1;
+        questions2[index].status = 2;
+        fails += 1;
+        count += 1;
         }
         }}
         } while (count<questions2.length);
-        console.log("Has acertado " + corrects + " palabras y has cometido " + fails + " errores.")
+        console.log('Has acertado ' , corrects ,' palabras y has cometido ', fails , 'errores.')
+        return true
         }
 
         const doQuestions3 = () =>{
             do {
-            for(i=0; i<questions3.length; i++){
-            if(questions3[i].status === 0){
-            var userAnswer = prompt(questions3[i].question).toLowerCase();
-            if(userAnswer === questions3[i].answer){
+            for(let index = 0; index < questions1.length; index += 1){
+            if(questions3[index].status === 0){
+            const userAnswer = prompt(questions3[index].question).toLowerCase();
+            if(userAnswer === questions3[index].answer){
             console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
-            questions3[i].status = 1;
-            corrects = corrects+1;
-            count = count+1;;
+            questions3[index].status = 1;
+            corrects += 1;
+            count += 1;;
             }
             else if(userAnswer === "pasapalabra"){
             console.log("Pasamos palabra");
             }
             else if(userAnswer === "end"){
-            console.log("El juego ha terminado con , " + corrects + " aciertos y " + fails + " errores.");
+            console.log('El juego ha terminado con ,' , corrects , ' aciertos y ' , fails , ' errores.');
             return userAnswer;
             }
             else {
             console.log("¡¡¡¡¡¡¡ERROR!!!!!!!");
-            questions3[i].status = 2;
-            fails = fails+1;
-            count = count+1;
+            questions3[index].status = 2;
+            fails += 1;
+            count += 1;
             }
             }}
             } while(count<questions3.length);
-            console.log("Has acertado " + corrects + " palabras y has cometido " + fails + " errores.")
+            console.log('Has acertado ' , corrects ,' palabras y has cometido ', fails , 'errores.')
+            return true
             }
 
             let questionNumber = 0;
