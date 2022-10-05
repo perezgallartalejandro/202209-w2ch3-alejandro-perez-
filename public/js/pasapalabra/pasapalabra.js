@@ -1,6 +1,6 @@
 const players = [] ;
-players.push = prompt("introduzca su nombre");
-console.log("bienvenido a pasapalabra", players[players-length-1]);
+players.push = "alejandro";
+console.log("bienvenido a pasapalabra", players[players.length-1]);
 
 const pasapalabra = () => {
   let corrects = 0;
@@ -92,8 +92,8 @@ const pasapalabra = () => {
   do {
   for(let index = 0; index < questions1.length; index += 1){
   if(questions1[index].status === 0){
-  const userAnswer = prompt(questions1[index].question).toLowerCase();
-  if(userAnswer === questions1[i].answer){
+  const userAnswer = "zapato";
+  if(userAnswer === questions1[index].answer){
   console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
   questions1[index].status = 1;
   corrects += 1;
@@ -122,7 +122,7 @@ const doQuestions2 = () =>{
      do {
     for(let index = 0; index < questions1.length; index += 1){
         if(questions1[index].status === 0){
-        const userAnswer = prompt(questions2[i].question).toLowerCase();
+        const userAnswer = "zapato"
         if(userAnswer === questions2[index].answer){
         console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
         questions2[index].status = 1;
@@ -152,7 +152,7 @@ const doQuestions2 = () =>{
             do {
             for(let index = 0; index < questions1.length; index += 1){
             if(questions3[index].status === 0){
-            const userAnswer = prompt(questions3[index].question).toLowerCase();
+            const userAnswer = "zapato";
             if(userAnswer === questions3[index].answer){
             console.log("¡¡¡¡¡¡¡¡¡CORRECTO!!!!!!!");
             questions3[index].status = 1;

@@ -13,7 +13,7 @@ let flights = [
   ];
 
   const askName = () => {
-  const name = prompt("Introduzca su nombre");
+  const name = "alejandro";
   console.log(`bienvenido a ISDI Airlines, ${name}`);
   }
 
@@ -59,12 +59,10 @@ let flights = [
       }
       
   const preguntaRol = () => {
-          const rol = prompt("cual es tu rol? (user/admin)");
+          const rol ="admin";
           if (rol === null){
-              alert("rol incorrecto");
               preguntaRol();
           }else if(rol.toLowerCase() !== "user" && rol.toLowerCase() !=="admin"){
-              alert("rol incorrecto");
               preguntaRol();
           }
       if (rol.toLowerCase() ==="admin"){
@@ -76,7 +74,7 @@ let flights = [
       }
   
       const eresAdmin = () => {
-          const accionAdmin = prompt("desea crear nuevos vuelos o borrarlos de la lista de vuelos? crear/borrar ");
+          const accionAdmin = "crear";
           if (accionAdmin === null){
           eresAdmin();
           }else if(accionAdmin.toLowerCase() !=="crear" && accionAdmin.toLowerCase() !=="borrar"){
@@ -84,11 +82,11 @@ let flights = [
           }
       if (accionAdmin.toLowerCase() === "crear" && flights.length<14){
           const nuevoVuelo = {};
-          nuevoVuelo.id = +prompt("inserte numero de vuelo");
-          nuevoVuelo.to = prompt("inserte origen del vuelo");
-          nuevoVuelo.from = prompt("inserte destino del vuelo");
-          nuevoVuelo.cost = +prompt("inserte coste del vuelo");
-          nuevoVuelo.scale = prompt("inserte si realiza escala");
+          nuevoVuelo.id = 6;
+          nuevoVuelo.to = "Estambul";
+          nuevoVuelo.from = "Barcelona";
+          nuevoVuelo.cost = 300;
+          nuevoVuelo.scale = true;
           flights.push(nuevoVuelo);
           console.log("**********VUELOS**********");
           flights.forEach((flight) => {
@@ -100,11 +98,9 @@ let flights = [
           }})
           console.log("*******************");
           }
-      else if(accionAdmin.toLowerCase() === "crear" && flights.length>14){
-      alert("el numero de vuelos ha excedido el maximo");
-      }
+      else if(accionAdmin.toLowerCase() === "crear" && flights.length>14)
       if (accionAdmin.toLowerCase() === "borrar"){
-          const idBorrar = +prompt("numero de vuelo que desea borrar") 
+          const idBorrar = 1; 
           flights = flights.filter((flight) => flight.id !== idBorrar);
       }
       console.log("**********VUELOS**********");
@@ -119,7 +115,7 @@ let flights = [
           }
       
       const eresUser = () => {
-          const precioVuelo = +prompt("introduzca su presupuesto maximo");
+          const precioVuelo = 150;
           console.log("los vuelos dentro de su presupuesto son...");
           flights.forEach((flight) => {
               if (flight.cost < precioVuelo){
@@ -127,7 +123,6 @@ let flights = [
               }
           })
           if (Number.isNaN(precioVuelo) && precioVuelo<0){
-              alert("introduzca su presupuesto maximo");
               eresUser();
           }
       }
